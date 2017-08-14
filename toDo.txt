@@ -1,0 +1,17 @@
+1. Lazy load / preload images XX
+
+2. Padding at the end of scroll XX
+
+3. Smaller images for mobile  XX
+
+4 . Initial scroll in 
+
+5. Preload - glass XX
+
+6. Lazyload small img sizes
+
+7. Fade back in intro properly on user scrollback - it jumps in now
+
+• Hold when headerbanner goes out of view XX
+• Scroll in text caption
+• Scroll image slider XX

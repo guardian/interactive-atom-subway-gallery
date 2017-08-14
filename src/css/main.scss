@@ -1,0 +1,19 @@
+@import "mq";
+@import "fonts";
+@import "slides";
+@import "headerStyles";
+
+// Uncomment for embeds
+//@import "embed";
+
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+
+.element-atom,
+.interactive-atom {
+    margin: 0 !important;
+      background-color:#FFF;
+      padding-bottom: 120px;
+}
+
+

@@ -1,0 +1,47 @@
+.gv-head-wrapper{
+	width: 100%;
+	background-color:#EFEFEF;
+
+}
+
+.gv-head-container{
+	width: 100%;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding:10px;
+	background-color:#EEE;
+	@include mq(desktop){
+		padding:20px;
+	}
+}
+
+.gv-head-standfirst-container{
+	padding: 0 10px 0;
+
+	h3{
+		@include fs-headline(6);	
+		font-weight:300;
+		@include mq(desktop){
+			@include fs-headline(9);	
+		}
+	}
+
+	p{
+		@include fs-bodyCopy(2);
+		@include mq(desktop){
+			@include fs-bodyCopy(3);
+		}
+	}
+
+	h5{
+		@include fs-textSans(4);
+	}
+
+	h3,h5{
+		color: $multimedia-main-2;
+	}
+}
+
+.gv-standfirst{
+	max-width: 620px;
+}
