@@ -202,15 +202,12 @@ $cappy-h-desktop: 216px;
 	color: #666;
 	width:220px;
 	padding-top:12px;
-	padding-left:10px;
-	padding-top:60px;
-	padding-bottom:6px;
+	padding-bottom:60px;
+	padding-left:20px;
 
 	@include mq(desktop){
-		width: 360px;
-		padding-top:12px;
-		padding-bottom:60px;
-		padding-left:20px;
+		width: 620px;
+		
 	}
 
 	@include mq(leftCol){
@@ -275,9 +272,13 @@ $cappy-h-desktop: 216px;
 	
 }
 .gv-text-pt{
-	width:100px;
+	width:auto;
 	padding-left:10px;
 	vertical-align:top;
+	@include fs-textSans(3);
+	strong{
+		padding-right:6px;
+	}
 }
 
 .show-desktop{

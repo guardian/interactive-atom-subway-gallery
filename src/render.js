@@ -1,7 +1,7 @@
-import mainTemplate from './src/templates/main.html!text'
+import mainRender from './src/templates/mainRender.html!text'
 
 export async function render() {
-    return mainTemplate;  
+    return mainRender;  
 }
 
 

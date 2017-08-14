@@ -1,4 +1,8 @@
+import mainTemplate from '../templates/main.html'
+
+import xr from 'xr'
 import lazysizes from 'lazysizes'
+import Handlebars from 'handlebars/dist/handlebars'
 
 let H;
 let screenFormat;
@@ -11,8 +15,59 @@ let introCaptionEl;
 let introTxt;
 let introPlayed = false;
 
+console.log(mainTemplate)
 
-function init() {
+xr.get('https://interactive.guim.co.uk/docsdata-test/18bWPDl8t49K8iBXY1mdqfXgHxxfQcN9CpiSXnDWReuU.json').then((resp) => {
+    let d = resp.data.sheets.Sheet1;
+
+    var newObj = {};
+    newObj.objArr = d;
+
+    var compiledHTML = compileHTML(newObj);
+    
+    document.querySelector(".gv-interactive-container").innerHTML = compiledHTML;
+
+});
+
+function getObjArr(o) {
+    o.map((obj) => {
+        console.log(obj);
+    })
+
+    return o;
+};
+
+
+function compileHTML(dataObj) {
+
+    console.log(dataObj)
+
+    Handlebars.registerHelper('html_decoder', function(text) {
+        var str = unescape(text).replace(/&amp;/g, '&');
+        return str;
+    });
+
+    Handlebars.registerHelper('uppercase', function(options) {  
+        return options.fn(this).toUpperCase();
+    });
+
+
+    var content = Handlebars.compile(
+        mainTemplate, {
+            compat: true
+        }
+    );
+
+    var newHTML = content(dataObj);
+
+    return newHTML;
+
+}
+
+
+
+
+function initApp() {
     document.documentElement.offsetWidth > 979 ? screenFormat = "desktop" : screenFormat = "mobile"; console.log( screenFormat)
     H = 0;
     headEl = document.getElementById("bannerandheader");
@@ -30,11 +85,11 @@ function checkScreenSize() {
 }
 
 function initMobile() {
-    introPanelEl.classList.add("fade-half");
+   //introPanelEl.classList.add("fade-half");
     console.log("mobile");
     //introCaptionEl.style.bottom = "0px";
 
-    addListenersMobile();
+    //addListenersMobile();
 }
 
 
@@ -87,10 +142,10 @@ function addListenersDesktop() {
 
 function addListenersMobile(){
     console.log("mob")
-	document.addEventListener("scroll", function() {
+    document.addEventListener("scroll", function() {
         introPanelEl.classList.remove("fade-half");
         introPanelEl.classList.add("fade-out");
-	})
+    })
 
 }
 
@@ -99,57 +154,8 @@ function notShownY(el) {
     return (el.offsetHeight * -1) > el.getBoundingClientRect().top;
 }
 
+
+
 init();
 
 
-
-
-
-// function scrollSlider(s) {
-//     let newX = (0 - s[1]);
-//     scrollerEl.style.transform = "translateX(" + (newX - document.documentElement.offsetWidth) + "px)";
-
-//     //}
-
-//     var a = wrapEl.scrollTop;
-//     var b = wrapEl.offsetHeight - wrapEl.scrollTop;
-//     // var c = a/b; //% of scroll --- https://stackoverflow.com/questions/2481350/how-to-get-scrollbar-position-with-javascript
-//     //console.log(a,b);
-
-//     if ((headEl.getBoundingClientRect().top * -1) > 2000) {
-//         introPlayed = false;
-//     }
-// }
-
-// function scrollIntro(s) {
-//     let newY = s[1];
-//     let newPos = introCaptionEl.getBoundingClientRect().bottom;
-//     newPos += newY;
-//     if ((headEl.getBoundingClientRect().top * -1) > 2000) {
-//         introPlayed = true;
-//     } else {
-//         introCaptionEl.style.transform = "translateY(300px)";
-
-//         console.log(newPos)
-//     }
-// }
-
-///////////////timer example
-
-
-// wrapAll.addEventListener("scroll", doThisStuffOnScroll);
-
-// var didScroll = false;
-
-// document.onscroll = doThisStuffOnScroll;
-
-// function doThisStuffOnScroll() {
-//     didScroll = true;
-// }
-
-// setInterval(function() {
-//     if(didScroll) {
-//         didScroll = false;
-//         console.log(wrapAll.scrollHeight - wrapAll.clientHeight);
-//     }
-// }, 100);

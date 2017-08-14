@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "handlebars": "^4.0.10",
-    "lazysizes": "^4.0.0-rc3"
+    "lazysizes": "^4.0.0-rc3",
+    "xr": "^0.3.0"
   }
 }
