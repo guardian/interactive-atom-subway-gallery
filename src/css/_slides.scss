@@ -4,6 +4,9 @@ $multimedia-main-2: #ffbb00;
 $cappy-h-desktop: 216px;
 
 
+
+
+
 .gv-slide-wrapper{
 	position:relative;
 	width:auto;
@@ -11,7 +14,7 @@ $cappy-h-desktop: 216px;
 	overflow-x: hidden;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
-	background-color: #000;
+
 	@include mq(desktop){
 		overflow-x: hidden;
     	overflow-y: hidden;
@@ -21,6 +24,8 @@ $cappy-h-desktop: 216px;
 		position:fixed;
 		top: 0;
 	}
+
+
 }
 
 .gv-wrap-all-slides{
@@ -28,7 +33,7 @@ $cappy-h-desktop: 216px;
 	max-width: $desktop-max-w;	
 	overflow-x: hidden;
     overflow-y: hidden;
-    background-color:#FFF;
+
     margin: 0 auto; 
 }
 
@@ -41,7 +46,7 @@ $cappy-h-desktop: 216px;
     overflow-y: hidden;
     white-space: nowrap;
     word-spacing:0;
-    background-color:#000;
+
     transition-timing-function: ease-out;
   //transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   	transition: 0.25s;
@@ -189,6 +194,9 @@ $cappy-h-desktop: 216px;
 .gv-slide-wrapper, .gv-slides-container, .gv-slide-item{
 	//max-height:852px;
 }
+
+
+
 
 .gv-slide-cap{
 	color: #666;

@@ -1,19 +1,29 @@
-.gv-head-wrapper{
+.gv-head-wrapper, .gv-cap-wrapper{
 	width: 100%;
-	background-color:#EFEFEF;
+
 
 }
 
-.gv-head-container{
+.gv-head-container, .gv-cap-container{
 	width: 100%;
 	max-width: 1300px;
 	margin: 0 auto;
 	padding:10px;
-	background-color:#EEE;
+
 	@include mq(desktop){
 		padding:20px;
 	}
 }
+
+
+.gv-cap-wrapper, .gv-cap-container{
+
+}
+
+.gv-cap-container{
+	padding: 0 20px;
+}
+
 
 .gv-head-standfirst-container{
 	padding: 0 10px 0;
