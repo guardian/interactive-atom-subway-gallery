@@ -1,322 +1,316 @@
 $mobile-max-h: 400px;
-$desktop-max-w: 1920px;;
+$desktop-max-w: 1920px;
+;
 $multimedia-main-2: #ffbb00;
 $cappy-h-desktop: 216px;
-
-.gv-slide-wrapper{
-	position:relative;
-	width:auto;
-	
-	overflow-x: hidden;
-	overflow-y: hidden;
-	-webkit-overflow-scrolling: touch;
-
-	@include mq(desktop){
-		width: calc( 100% - 20px );
-		overflow-x: hidden;
-    	overflow-y: hidden;
-	}
-	
-	&.fixed{
-		position:fixed;
-		top: 0;
-	}
-
-
-}
-
-.gv-wrap-all-slides{
-	width:100%;
-	max-width: $desktop-max-w;	
-	overflow-x: hidden;
+.gv-slide-wrapper {
+    position: relative;
+    width: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
-
-    margin: 0 auto; 
+    -webkit-overflow-scrolling: touch;
+    @include mq(desktop) {
+        width: calc( 100% - 20px);
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    &.fixed {
+        position: fixed;
+        top: 0;
+    }
 }
 
+.gv-wrap-all-slides {
+    width: 100%;
+    max-width: $desktop-max-w;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0 auto;
+}
 
-.gv-slide-container{
-	position:relative;
-	height: auto;
-	padding-top:12px;
+.gv-slide-container {
+    position: relative;
+    height: auto;
+    padding-top: 12px;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    word-spacing:0;
-
+    word-spacing: 0;
     transition-timing-function: ease-out;
-  //transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
-  	transition: 0.25s;
-    @include mq(desktop){
-    	width:100%;
-		overflow-x: hidden;
-    	overflow-y: hidden;
-	}	
+    //transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    transition: 0.25s;
+    @include mq(desktop) {
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    // &.swiper-icon:after{
+    // 		content: "kno";
+    // 		position:absolute;
+    // 		top:0;
+    // 		height:100%;
+    // 		width:100%;
+    // 		color:#FFF;
+    // 		background-color:rgba(#000, 0.8);
+    // }	
 }
 
-.gv-slide-container{
-	position: relative;
-	
-	width: 100%;
-	img{
-		height:60vh;
-		width:auto;
-	}
-
-	@include mq(desktop){
-		padding: 0 20px;
-		//max-height: $desktop-max-h;
-		img{
-			height:auto;
-			width:100%;
-		}
-		
-	}
+.swiper-icon {
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        color: #FFF;
+        background-image: url('<%= path %>/assets/swipe-icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60px 60px;
+        background-color: rgba(#000, 0.8);
+        @include mq(desktop){
+        	display:none;
+        }
+    }
+    &.fade-out {
+        &::after {
+           // display: none;
+            opacity: 0;
+            transition: opacity 1s linear;
+            @include mq(desktop){
+	        	display:none;
+	        }
+        }
+    }
 }
 
-
-.gv-slide-cap{
-	
-		left: 10px;
-		height: auto; 
-		color:$neutral-color;
-
-		h3{
-			@include fs-header(1);
-
-		}
-		p{
-			@include fs-textSans(3);
-			width: 280px;
-
-		}
-
-		@include mq(desktop){
-			bottom: 36px;
-			padding: 12px 24px 60px 12px;
+.gv-slide-container {
+    position: relative;
+    width: 100%;
+    img {
+        height: 60vh;
+        width: auto;
+    }
 
 
-			h3{
-				@include fs-header(3);
-			}
-	
-
-			&.opening{
-				bottom: -316px;
-
-				&.ani{
-					bottom: 36px;
-					transition: 0.5s linear;
-				}
-				// -webkit-transition-property: bottom; /* Safari */
-				 //    -webkit-transition-duration: 5s; /* Safari */
-				 //    transition-property: bottom;
-				 //    transition-duration: 5s;
-
-
-
-			}
-			
-		}
-
-	}
-
-.gv-intro-panel{
-	position:absolute;
-	top: 0;
-	left:0;
-	height: 100%;
-	width:100%;
-	background-color:#000;
-
-	&.fade-half {
-	  background-color:rgba(#000, 0.8);
-	  transition: background-color 1.5s linear;
-	}
-
-	&.fade-back-in{
-	  visibility: visible;
-	  background-color:rgba(#000,  0.8);
-	  transition: visibility 0s 3s, opacity 3s linear;
-	}
-
-	&.fade-out {
-	  visibility: hidden;
-	  background-color:rgba(#000, 0);
-	  transition: visibility 0s 3s, opacity 3s linear;
-	}
+    @include mq(desktop) {
+        padding: 0 20px;
+        //max-height: $desktop-max-h;
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
 }
 
-.gv-intro-panel{
-	width:100%;
-
-	h3{
-		@include fs-headline(6);	
-		font-weight:300;
-		@include mq(desktop){
-			@include fs-headline(9);	
-		}
-	}
-
-	p{
-		@include fs-bodyCopy(2);
-		@include mq(desktop){
-			@include fs-bodyCopy(3);
-		}
-	}
-
-	h5{
-		@include fs-textSans(4);
-	}
-
-	h3,h5{
-		color: #808183;
-	}
-
+.gv-slide-cap {
+    left: 10px;
+    height: auto;
+    color: $neutral-color;
+    h3 {
+        @include fs-header(1);
+    }
+    p {
+        @include fs-textSans(3);
+        width: 280px;
+    }
+    @include mq(desktop) {
+        bottom: 36px;
+        padding: 12px 24px 60px 12px;
+        h3 {
+            @include fs-header(3);
+        }
+        &.opening {
+            bottom: -316px;
+            &.ani {
+                bottom: 36px;
+                transition: 0.5s linear;
+            }
+            // -webkit-transition-property: bottom; /* Safari */
+            //    -webkit-transition-duration: 5s; /* Safari */
+            //    transition-property: bottom;
+            //    transition-duration: 5s;
+        }
+    }
 }
 
-.gv-slide-wrapper, .gv-slides-container, .gv-slide-item{
-	//max-height:852px;
+.gv-intro-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    &.fade-half {
+        background-color: rgba(#000, 0.8);
+        transition: background-color 1.5s linear;
+    }
+    &.fade-back-in {
+        visibility: visible;
+        background-color: rgba(#000, 0.8);
+        transition: visibility 0s 3s, opacity 3s linear;
+    }
+    &.fade-out {
+        visibility: hidden;
+        background-color: rgba(#000, 0);
+        transition: visibility 0s 3s, opacity 3s linear;
+    }
 }
 
-
-
-
-.gv-slide-cap{
-	color: $neutral-color;
-	width:100%;
-	padding-top:12px;
-	padding-bottom:60px;
-	padding-left: 10px;
-
-	@include mq(desktop){
-		width: 620px;
-		padding-left:20px;
-		
-	}
-
-	&.fade-back-in{
-	  opacity: 1;
-	  transition: opacity 1s linear;
-	}
-
-	&.fade-out {
-	  opacity: 0;
-	  transition: opacity 0.5s linear;
-	}
-
-	
+.gv-intro-panel {
+    width: 100%;
+    h3 {
+        @include fs-headline(6);
+        font-weight: 300;
+        @include mq(desktop) {
+            @include fs-headline(9);
+        }
+    }
+    p {
+        @include fs-bodyCopy(2);
+        @include mq(desktop) {
+            @include fs-bodyCopy(3);
+        }
+    }
+    h5 {
+        @include fs-textSans(4);
+    }
+    h3,
+    h5 {
+        color: #808183;
+    }
 }
 
-.gv-intro-panel-text{
-	width:100%;
-	max-width: $desktop-max-w;	
-	margin:24px auto 0;
-	padding-left:20px;
-	color:#FFF;
-	h3, h5, p{
-		
-		width:260px;
-		@include mq(desktop){
-			width:560px;
-		}
-	}
-
-	@include mq(desktop){
-		margin-top:120px;
-		padding-left:20px;
-	}
-
-
+.gv-slide-wrapper,
+.gv-slides-container,
+.gv-slide-item {
+    //max-height:852px;
 }
 
-.gv-intro-panel-margins{
-	width:100%;
-	margin:0 auto;
-	max-width:1300px;
+.gv-slide-cap {
+    color: $neutral-color;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 60px;
+    padding-left: 10px;
+    @include mq(desktop) {
+        width: 620px;
+        padding-left: 20px;
+    }
+    &.fade-back-in {
+        opacity: 1;
+        transition: opacity 1s linear;
+    }
+    &.fade-out {
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
 }
 
-.gv-number-pt, .gv-text-pt{
-	display:inline-block;
-}
-.gv-number-pt{
-	width:36px;
-	height:36px;
-	margin-top: 0;
-	border-radius:9999px;
-	background-color:#fccc0a;
-	color:#222;
-	text-align:center;
-	font-family: "Helvetica", Helvetica, Arial, sans;
-	font-size:22px;
-	line-height:36px;
-	font-weight:600;
-	letter-spacing: -1px;
-
-	&.red{
-		background-color:#ee352e;
-		color: #FFF;
-	}
-	&.green{
-		background-color:#00933c;
-		color: #FFF;
-	}
-	&.orange{
-		background-color:#ff6319;
-		color: #FFF;
-	}
-	&.blue{
-		background-color: #2850ad;
-		color: #FFF;
-	}
-	&.grey{
-		background-color:#a7a9ac;
-		color: #FFF;
-	}
-	&.purple{
-		background-color:#b933ad;
-		color: #FFF;
-	}
-	&.yellow{
-		background-color:#fccc0a;
-		color:#222;
-	}
-	&.brown{
-		background-color:#996633;
-		color: #FFF;
-	}
-
-
-	// colors from https://en.wikipedia.org/wiki/New_York_City_Subway_nomenclature#Colors_and_trunk_lines
-	
-}
-.gv-text-pt{
-	width: 180px;
-	padding-left:10px;
-	vertical-align:top;
-
-	@include fs-textSans(3);
-	line-height:18px;
-	@include mq(desktop){
-		width: auto;
-	}
-	strong{
-		padding-right:6px;
-
-	}
+.gv-intro-panel-text {
+    width: 100%;
+    max-width: $desktop-max-w;
+    margin: 24px auto 0;
+    padding-left: 20px;
+    color: #FFF;
+    h3,
+    h5,
+    p {
+        width: 260px;
+        @include mq(desktop) {
+            width: 560px;
+        }
+    }
+    @include mq(desktop) {
+        margin-top: 120px;
+        padding-left: 20px;
+    }
 }
 
-.show-desktop{
-	display:none;
-	@include mq(desktop){
-		display: block;
-	}
+.gv-intro-panel-margins {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1300px;
 }
 
+.gv-number-pt,
+.gv-text-pt {
+    display: inline-block;
+}
 
-.show-mobile{
-	display:block;
-	@include mq(desktop){
-		display: none;
-	}
+.gv-number-pt {
+    width: 36px;
+    height: 36px;
+    margin-top: 0;
+    border-radius: 9999px;
+    background-color: #fccc0a;
+    color: #222;
+    text-align: center;
+    font-family: "Helvetica", Helvetica, Arial, sans;
+    font-size: 22px;
+    line-height: 36px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    &.red {
+        background-color: #ee352e;
+        color: #FFF;
+    }
+    &.green {
+        background-color: #00933c;
+        color: #FFF;
+    }
+    &.orange {
+        background-color: #ff6319;
+        color: #FFF;
+    }
+    &.blue {
+        background-color: #2850ad;
+        color: #FFF;
+    }
+    &.grey {
+        background-color: #a7a9ac;
+        color: #FFF;
+    }
+    &.purple {
+        background-color: #b933ad;
+        color: #FFF;
+    }
+    &.yellow {
+        background-color: #fccc0a;
+        color: #222;
+    }
+    &.brown {
+        background-color: #996633;
+        color: #FFF;
+    }
+    // colors from https://en.wikipedia.org/wiki/New_York_City_Subway_nomenclature#Colors_and_trunk_lines
+}
+
+.gv-text-pt {
+    width: 180px;
+    padding-left: 10px;
+    vertical-align: top;
+    @include fs-textSans(3);
+    line-height: 18px;
+    @include mq(desktop) {
+        width: auto;
+    }
+    strong {
+        padding-right: 6px;
+    }
+}
+
+.show-desktop {
+    display: none;
+    @include mq(desktop) {
+        display: block;
+    }
+}
+
+.show-mobile {
+    display: block;
+    @include mq(desktop) {
+        display: none;
+    }
 }
