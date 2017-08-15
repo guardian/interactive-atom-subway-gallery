@@ -79,7 +79,7 @@ $cappy-h-desktop: 216px;
 	
 		left: 10px;
 		height: auto; 
-		color:#666;
+		color:$neutral-color;
 
 		h3{
 			@include fs-header(1);
@@ -94,8 +94,7 @@ $cappy-h-desktop: 216px;
 		@include mq(desktop){
 			bottom: 36px;
 			padding: 12px 24px 60px 12px;
-			//background-color: rgba(#000, 0.8);
-			//color:#FFF;
+
 
 			h3{
 				@include fs-header(3);
@@ -110,25 +109,13 @@ $cappy-h-desktop: 216px;
 					transition: 0.5s linear;
 				}
 				// -webkit-transition-property: bottom; /* Safari */
-			 //    -webkit-transition-duration: 5s; /* Safari */
-			 //    transition-property: bottom;
-			 //    transition-duration: 5s;
+				 //    -webkit-transition-duration: 5s; /* Safari */
+				 //    transition-property: bottom;
+				 //    transition-duration: 5s;
 
 
 
 			}
-
-			// &:before{
-			// 	content:'';
-			// 	position:absolute;
-			// 	width:70px;
-			// 	height:3px;
-			// 	top:0;
-			// 	left: 0;
-			// 	background-color: $multimedia-main-2;
-
-
-			// }
 			
 		}
 
@@ -183,7 +170,7 @@ $cappy-h-desktop: 216px;
 	}
 
 	h3,h5{
-		color: $multimedia-main-2;
+		color: #808183;
 	}
 
 }
@@ -196,7 +183,7 @@ $cappy-h-desktop: 216px;
 
 
 .gv-slide-cap{
-	color: #666;
+	color: $neutral-color;
 	width:100%;
 	padding-top:12px;
 	padding-bottom:60px;
@@ -253,29 +240,69 @@ $cappy-h-desktop: 216px;
 	display:inline-block;
 }
 .gv-number-pt{
-	width:30px;
-	height:30px;
+	width:36px;
+	height:36px;
+	margin-top: 0;
 	border-radius:9999px;
-	background-color:$multimedia-main-2;
-	color: #FFF;
+	background-color:#fccc0a;
+	color:#222;
 	text-align:center;
 	font-family: "Helvetica", Helvetica, Arial, sans;
-	font-size:21px;
+	font-size:22px;
+	line-height:36px;
 	font-weight:600;
 	letter-spacing: -1px;
+
+	&.red{
+		background-color:#ee352e;
+		color: #FFF;
+	}
+	&.green{
+		background-color:#00933c;
+		color: #FFF;
+	}
+	&.orange{
+		background-color:#ff6319;
+		color: #FFF;
+	}
+	&.blue{
+		background-color: #2850ad;
+		color: #FFF;
+	}
+	&.grey{
+		background-color:#a7a9ac;
+		color: #FFF;
+	}
+	&.purple{
+		background-color:#b933ad;
+		color: #FFF;
+	}
+	&.yellow{
+		background-color:#fccc0a;
+		color:#222;
+	}
+	&.brown{
+		background-color:#996633;
+		color: #FFF;
+	}
+
+
+	// colors from https://en.wikipedia.org/wiki/New_York_City_Subway_nomenclature#Colors_and_trunk_lines
 	
 }
 .gv-text-pt{
 	width: 180px;
 	padding-left:10px;
 	vertical-align:top;
-	@include fs-textSans(3);
 
+	@include fs-textSans(3);
+	line-height:18px;
 	@include mq(desktop){
 		width: auto;
 	}
 	strong{
 		padding-right:6px;
+
 	}
 }
 

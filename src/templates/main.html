@@ -3,8 +3,8 @@
   <div class="gv-head-container">
     <div class="gv-head-standfirst-container">
       <h3>Photos of NYC</h3>
-       <p class="gv-standfirst">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-       <h5>Scroll to see more</h5>
+       <p class="gv-standfirst">Natan Divir lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
     </div>  
   </div> 
 </div> 
@@ -23,15 +23,19 @@
    
     <div class="gv-slide-wrapper">
         <div class="gv-slide-container"> 
-          <img src="<%= path %>/assets/p-holder.jpg" data-src="<%= path %>/assets/platforms/desktop/{{image_number}}.jpg"  class="lazyload" />
+          <img sizes="(min-width: 1000px) 930px, 90vw" src="<%= path %>/assets/p-holder.jpg" 
+          data-srcset="<%= path %>/assets/platforms/mobile/{{image_number}}.jpg 500w,
+    <%= path %>/assets/platforms/mobile/{{image_number}}.jpg 640w,
+    <%= path %>/assets/platforms/desktop/{{image_number}}.jpg 980w"
+          class="lazyload" />
         </div>
     </div>  
 
     <div class="gv-cap-wrapper">
       <div class="gv-cap-container">
         <div class="gv-slide-cap">
-          <div class="gv-number-pt">{{image_number}}</div>
-              <div class="gv-text-pt"><strong>{{station_name}}</strong> {{caption}}</div>
+          <div class="gv-number-pt {{Line_color_1}}">{{image_number}}</div>
+              <div class="gv-text-pt"><strong>{{station_name}}</strong><br/>{{caption}}</div>
         </div>
       </div>
     </div>
