@@ -3,19 +3,16 @@ $desktop-max-w: 1920px;;
 $multimedia-main-2: #ffbb00;
 $cappy-h-desktop: 216px;
 
-
-
-
-
 .gv-slide-wrapper{
 	position:relative;
 	width:auto;
-	width: 100%;
+	
 	overflow-x: hidden;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
 
 	@include mq(desktop){
+		width: calc( 100% - 20px );
 		overflow-x: hidden;
     	overflow-y: hidden;
 	}
@@ -200,18 +197,15 @@ $cappy-h-desktop: 216px;
 
 .gv-slide-cap{
 	color: #666;
-	width:220px;
+	width:100%;
 	padding-top:12px;
 	padding-bottom:60px;
-	padding-left:20px;
+	padding-left: 10px;
 
 	@include mq(desktop){
 		width: 620px;
+		padding-left:20px;
 		
-	}
-
-	@include mq(leftCol){
-		width: 520px;
 	}
 
 	&.fade-back-in{
@@ -272,10 +266,14 @@ $cappy-h-desktop: 216px;
 	
 }
 .gv-text-pt{
-	width:auto;
+	width: 180px;
 	padding-left:10px;
 	vertical-align:top;
 	@include fs-textSans(3);
+
+	@include mq(desktop){
+		width: auto;
+	}
 	strong{
 		padding-right:6px;
 	}
