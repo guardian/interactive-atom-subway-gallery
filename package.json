@@ -50,6 +50,7 @@
   "dependencies": {
     "handlebars": "^4.0.10",
     "lazysizes": "^4.0.0-rc3",
+    "swiper": "^3.4.2",
     "xr": "^0.3.0"
   }
 }

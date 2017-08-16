@@ -109,12 +109,14 @@ $cappy-h-desktop: 216px;
     height: auto;
     color: $neutral-color;
     h3 {
-        @include fs-header(1);
+        @include fs-header(2);
+        line-height: 18px;
     }
     p {
         @include fs-textSans(3);
         width: 280px;
     }
+    margin: 0;
     @include mq(desktop) {
         bottom: 36px;
         padding: 12px 24px 60px 12px;
@@ -291,17 +293,19 @@ $cappy-h-desktop: 216px;
 }
 
 .gv-text-pt {
-    width: 180px;
+    width: 220px;
     padding-left: 10px;
     vertical-align: top;
-    @include fs-bodyCopy(2);
+    @include fs-textSans(3);
 
     @include mq(desktop) {
         width: calc( 100% - 54px);
+        @include fs-bodyCopy(2);
     }
     strong {
         padding-right: 6px;
     }
+
 }
 
 .show-desktop {
