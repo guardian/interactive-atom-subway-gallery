@@ -22,6 +22,7 @@ $cappy-h-desktop: 216px;
 
 .gv-wrap-all-slides {
     width: 100%;
+    min-height: 800px;
     max-width: $desktop-max-w;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -111,6 +112,8 @@ $cappy-h-desktop: 216px;
     h3 {
         @include fs-header(2);
         line-height: 18px;
+        margin:0 0 3px !important;
+        color: $neutral-header;
     }
     p {
         @include fs-textSans(3);

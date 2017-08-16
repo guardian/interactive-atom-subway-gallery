@@ -7,6 +7,7 @@ $neutral-header: #222;
 @import "share";
 @import "slides";
 @import "headerStyles";
+@import "credits";
 
 // Uncomment for embeds
 //@import "embed";
@@ -17,6 +18,11 @@ $neutral-header: #222;
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
+    min-height:500px;	
+    @include mq(tablet){
+    	min-height:1200px;	
+    }
+    
 }
 
 .l-footer{

@@ -4,9 +4,11 @@ import xr from 'xr'
 import lazysizes from 'lazysizes'
 import Handlebars from 'handlebars/dist/handlebars'
 
+import { share } from './lib/share.js';
+
+var shareFn = share('NYC subway photography by Natan Divir','https://gu.com/p/72vvx');
 
 let screenFormat;
-
 let windowWidth;
 let isInApp = false;
 
@@ -32,6 +34,8 @@ xr.get('https://interactive.guim.co.uk/docsdata-test/18bWPDl8t49K8iBXY1mdqfXgHxx
     addListeners();
 
     updatePageDate();
+
+    adjustView();
 
 });
 
@@ -91,10 +95,18 @@ function addListeners() {
                 window.GuardianJSInterface.registerRelatedCardsTouch(false);
             }
     }, false);
-    
+
+    [].slice.apply(document.querySelectorAll('.gv-share-container button')).forEach(shareEl => {
+        var network = shareEl.getAttribute('data-network');
+
+        shareEl.addEventListener('click',() => shareFn(network));
+    });
+
 }
 
-
+function adjustView(){
+     if (isAndroidApp) { document.getElement(".gv-head-container").style.paddingTop = "60px";}
+}
 
 
 function notShownY(el) {
@@ -104,13 +116,15 @@ function notShownY(el) {
 
 
 function updatePageDate() {
-    let pubDate = appPublicationDate;
+    let pubDate;
 
-    if (!isInApp) { pubDate = new Date(window.guardian.config.page.webPublicationDate) }
-    let pubDateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC', timeZoneName: 'short' };
+    if (window.guardian.config.page.webPublicationDate) { pubDate = new Date(window.guardian.config.page.webPublicationDate) }
+    let pubDateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }; //, timeZone: 'UTC', timeZoneName: 'short'
     let dateStr = pubDate.toLocaleDateString('en-GB', pubDateOptions).split(",").join(" ").split("  ").join(" ");
 
     document.querySelector(".time-stamp").innerHTML = dateStr;
+
+    if (!window.guardian.config.page.webPublicationDate) { document.querySelector(".time-stamp").innerHTML = " "; }
 
     //console.log(pubDate);
 }
