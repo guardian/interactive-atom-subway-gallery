@@ -116,15 +116,17 @@ function notShownY(el) {
 
 
 function updatePageDate() {
+    document.querySelector(".time-stamp").innerHTML = " ";
+
     let pubDate;
 
-    if (window.guardian.config.page.webPublicationDate) { pubDate = new Date(window.guardian.config.page.webPublicationDate) }
+    if (window.guardian.config.page.webPublicationDate) { pubDate = new Date(window.guardian.config.page.webPublicationDate) 
     let pubDateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }; //, timeZone: 'UTC', timeZoneName: 'short'
     let dateStr = pubDate.toLocaleDateString('en-GB', pubDateOptions).split(",").join(" ").split("  ").join(" ");
 
     document.querySelector(".time-stamp").innerHTML = dateStr;
-
-    if (!window.guardian.config.page.webPublicationDate) { document.querySelector(".time-stamp").innerHTML = " "; }
+    }
+  
 
     //console.log(pubDate);
 }
