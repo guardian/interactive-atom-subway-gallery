@@ -1,21 +1,26 @@
-
 $neutral-color: #666;
-
+$neutral-header: #222;
 
 @import "mq";
 @import "fonts";
+@import "palette";
+@import "share";
 @import "slides";
 @import "headerStyles";
 
 // Uncomment for embeds
 //@import "embed";
 
-// Uncomment for full screen (including immersive article main media)
+//Uncomment for full screen (including immersive article main media)
 // @import "fullscreen";
 
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
+}
+
+.l-footer{
+	display:block !important;
 }
 
 

@@ -6,6 +6,20 @@ import Handlebars from 'handlebars/dist/handlebars'
 
 let screenFormat;
 
+let windowWidth;
+let isInApp = false;
+
+if(!window){
+    windowWidth = 970;
+    isInApp = true;
+}else{
+    windowWidth = window.innerWidth;
+}
+let isMobile = windowWidth < 980 ? true : false;
+
+
+
+
 xr.get('https://interactive.guim.co.uk/docsdata-test/18bWPDl8t49K8iBXY1mdqfXgHxxfQcN9CpiSXnDWReuU.json').then((resp) => {
     let d = resp.data.sheets.Sheet1;
     var newObj = {};
@@ -15,6 +29,8 @@ xr.get('https://interactive.guim.co.uk/docsdata-test/18bWPDl8t49K8iBXY1mdqfXgHxx
     document.querySelector(".gv-interactive-container").innerHTML = compiledHTML;
 
     updateView();
+
+    updatePageTexts();
 
 });
 
@@ -73,6 +89,18 @@ function updateView(){
 
 function notShownY(el) {
     return (el.offsetHeight * -1) > el.getBoundingClientRect().top;
+}
+
+function updatePageDate(){
+    let pubDate = appPublicationDate;    
+
+    if (!isInApp){ pubDate = new Date(window.guardian.config.page.webPublicationDate) } 
+    let pubDateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:'numeric', minute:'numeric', timeZone : 'UTC', timeZoneName : 'short'};
+    let dateStr = pubDate.toLocaleDateString('en-GB',pubDateOptions).split(",").join(" ").split("  ").join(" ");
+
+    document.querySelector(".time-stamp").innerHTML = dateStr;
+
+    //console.log(pubDate);
 }
 
 

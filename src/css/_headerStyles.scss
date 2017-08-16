@@ -23,7 +23,7 @@
 	margin: 0 0 12px;
 	padding : 0;
 	@include mq(desktop){
-		margin: 0 auto;
+		margin: 12px auto 0;
 		padding: 0 20px;
 	}
 	
@@ -54,6 +54,10 @@
 
 	h3,h5,p{
 		color: $neutral-color;
+	}
+
+	@include mq(desktop){
+		margin-left:160px;
 	}
 }
 
