@@ -6,7 +6,7 @@ $gs-baseline: 12px;
         border-top:1px solid #f1f1f1;
         margin-left:42px;
         @include mq(tablet){
-                padding:$gs-baseline 20px gs-height(1);
+                padding:$gs-baseline 10px 0 0;
                 margin-left:160px;
                 max-width:560px;
         }

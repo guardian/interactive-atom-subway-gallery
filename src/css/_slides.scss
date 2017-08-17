@@ -256,7 +256,7 @@ $cappy-h-desktop: 216px;
     color: #222;
     text-align: center;
     font-family: "Helvetica", Helvetica, Arial, sans;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 40px;
     font-weight: 600;
     letter-spacing: -0.6px;
@@ -291,6 +291,9 @@ $cappy-h-desktop: 216px;
     &.brown {
         background-color: #996633;
         color: #FFF;
+    }
+    &.W{
+        line-height:42px;
     }
     // colors from https://en.wikipedia.org/wiki/New_York_City_Subway_nomenclature#Colors_and_trunk_lines
 }

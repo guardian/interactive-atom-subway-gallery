@@ -121,8 +121,17 @@ function updatePageDate() {
     let pubDate;
 
     if (window.guardian.config.page.webPublicationDate) { pubDate = new Date(window.guardian.config.page.webPublicationDate) 
+        var d = new Date(window.guardian.config.page.webPublicationDate)
+        var n = d.getTimezoneOffset();
+        console.log(n/60)
     let pubDateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }; //, timeZone: 'UTC', timeZoneName: 'short'
+
+
+
+
     let dateStr = pubDate.toLocaleDateString('en-GB', pubDateOptions).split(",").join(" ").split("  ").join(" ");
+
+    dateStr = dateStr+" GMT";
 
     document.querySelector(".time-stamp").innerHTML = dateStr;
     }
