@@ -53,7 +53,7 @@ $cappy-h-desktop: 216px;
     // 		width:100%;
     // 		color:#FFF;
     // 		background-color:rgba(#000, 0.8);
-    // }	
+    // }
 }
 
 .swiper-icon {
@@ -140,6 +140,9 @@ $cappy-h-desktop: 216px;
             //    transition-duration: 5s;
         }
     }
+
+
+
 }
 
 .gv-intro-panel {
@@ -206,6 +209,9 @@ $cappy-h-desktop: 216px;
         padding-left: 20px;
         margin-left:96px;
     }
+    @include mq(wide){
+  		margin-left:156px;
+  	}
     &.fade-back-in {
         opacity: 1;
         transition: opacity 1s linear;
