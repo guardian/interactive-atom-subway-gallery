@@ -4,11 +4,18 @@ $gs-baseline: 12px;
         width: calc(100% - 80px);
         padding:$gs-baseline 10px 0 10px;
         border-top:1px solid #f1f1f1;
-        margin-left:42px;
-        @include mq(tablet){
-                padding:$gs-baseline 10px 0 0;
-                margin-left:220px;
+        margin-left:0;
+
+        @include mq(desktop){
+                padding:$gs-baseline 10px 0 10px;
+                margin-left:160px;
                 max-width:560px;
+        }
+
+        @include mq(wide){
+
+                margin-left:240px;
+
         }
 
         ul{

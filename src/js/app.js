@@ -22,7 +22,7 @@ Handlebars.registerHelper({
 
 Handlebars.registerPartial('stationList', stationTemplate)
 
-var shareFn = share('NYC subway photography by Natan Divir','https://gu.com/p/72vvx');
+var shareFn = share('Going downtown, the New York subway reaches Delhi - in pictures','https://gu.com/p/72vvx');
 
 let screenFormat;
 let windowWidth;

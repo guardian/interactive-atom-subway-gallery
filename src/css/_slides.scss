@@ -207,10 +207,10 @@ $cappy-h-desktop: 216px;
     @include mq(desktop) {
         width: 620px;
         padding-left: 20px;
-        margin-left:96px;
+        margin-left:140px;
     }
     @include mq(wide){
-  		margin-left:200px;
+  		margin-left:220px;
   	}
     &.fade-back-in {
         opacity: 1;
