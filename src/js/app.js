@@ -1,10 +1,26 @@
 import mainTemplate from '../templates/main.html'
+import stationTemplate from '../templates/stationList.html'
 
 import xr from 'xr'
 import lazysizes from 'lazysizes'
 import Handlebars from 'handlebars/dist/handlebars'
 
 import { share } from './lib/share.js';
+
+Handlebars.registerHelper({
+        'getStations': function(opts) {
+          var list = this.line_name.split(',');
+    	    return list;
+    	},
+      'if_value': function(a, opts) {
+    	    if(a != ""){
+    	        return opts.fn(this);
+    	    }
+    	    return opts.inverse(this);
+    	}
+    });
+
+Handlebars.registerPartial('stationList', stationTemplate)
 
 var shareFn = share('NYC subway photography by Natan Divir','https://gu.com/p/72vvx');
 
@@ -32,8 +48,6 @@ xr.get('https://interactive.guim.co.uk/docsdata-test/18bWPDl8t49K8iBXY1mdqfXgHxx
     document.querySelector(".gv-interactive-container").innerHTML = compiledHTML;
 
     addListeners();
-
-    updatePageDate();
 
     adjustView();
 
@@ -82,7 +96,7 @@ function addListeners() {
             }
         i++;
 
-    });  
+    });
 
     window.addEventListener("touchstart", function()  {
         if (isAndroidApp && window.GuardianJSInterface.registerRelatedCardsTouch) {
@@ -120,7 +134,7 @@ function updatePageDate() {
 
     let pubDate;
 
-    if (window.guardian.config.page.webPublicationDate) { pubDate = new Date(window.guardian.config.page.webPublicationDate) 
+    if (window.guardian.config.page.webPublicationDate) { pubDate = new Date(window.guardian.config.page.webPublicationDate)
         var d = new Date(window.guardian.config.page.webPublicationDate)
         var n = d.getTimezoneOffset();
         console.log(n/60)
@@ -135,7 +149,7 @@ function updatePageDate() {
 
     document.querySelector(".time-stamp").innerHTML = dateStr;
     }
-  
+
 
     //console.log(pubDate);
 }

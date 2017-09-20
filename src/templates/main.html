@@ -22,7 +22,22 @@
     <div class="gv-cap-wrapper">
       <div class="gv-cap-container">
         <div class="gv-slide-cap">
-          <div class="gv-number-pt {{line_color}} {{line_name}}">{{line_name}}</div>
+
+              <div class='gv-number-group'>
+
+                {{#if_value line_1}}
+                    <div class="gv-number-pt {{line_color}} {{line_1}}">{{line_1}}</div>
+                {{/if_value}}
+
+                {{#if_value line_2}}
+                    <div class="gv-number-pt {{line_color}} {{line_2}}">{{line_2}}</div>
+                {{/if_value}}
+
+                {{#if_value line_3}}
+                    <div class="gv-number-pt {{line_color}} {{line_1}}">{{line_3}}</div>
+                {{/if_value}}
+              </div>
+
               <div class="gv-text-pt"><h3>{{station_name}}</h3>{{caption}}</div>
         </div>
       </div>

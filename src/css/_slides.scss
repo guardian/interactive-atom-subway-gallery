@@ -110,22 +110,22 @@ $cappy-h-desktop: 216px;
     height: auto;
     color: $neutral-color;
     h3 {
-        @include fs-header(2);
-        line-height: 18px;
+        @include fs-headline(4);
+
         margin:0 0 3px !important;
         color: $neutral-header;
     }
     p {
         @include fs-textSans(3);
-        width: 280px;
+
     }
     margin: 0;
     @include mq(desktop) {
         bottom: 36px;
         padding: 12px 24px 60px 12px;
         h3 {
-            @include fs-header(3);
-            line-height: 18px;
+            @include fs-headline(6);
+          
             color:#222;
         }
         &.opening {
@@ -210,7 +210,7 @@ $cappy-h-desktop: 216px;
         margin-left:96px;
     }
     @include mq(wide){
-  		margin-left:156px;
+  		margin-left:200px;
   	}
     &.fade-back-in {
         opacity: 1;
@@ -304,9 +304,15 @@ $cappy-h-desktop: 216px;
     // colors from https://en.wikipedia.org/wiki/New_York_City_Subway_nomenclature#Colors_and_trunk_lines
 }
 
+.gv-number-group {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .gv-text-pt {
-    width: 220px;
-    padding-left: 10px;
+    width: calc( 100% - 40px);
+    padding-left: 5px;
     vertical-align: top;
     @include fs-textSans(3);
 

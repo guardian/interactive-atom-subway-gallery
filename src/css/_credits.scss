@@ -1,19 +1,19 @@
 $gs-baseline: 12px;
 
-.gv-credits-container{ 
+.gv-credits-container{
         width: calc(100% - 80px);
         padding:$gs-baseline 10px 0 10px;
         border-top:1px solid #f1f1f1;
         margin-left:42px;
         @include mq(tablet){
                 padding:$gs-baseline 10px 0 0;
-                margin-left:160px;
+                margin-left:220px;
                 max-width:560px;
         }
 
         ul{
             margin: 0 0 24px 0;
-            padding: 10px;
+            padding: 10px 0;
             line-height: 18px;
             li{
                 @include fs-textSans(3);
@@ -30,17 +30,17 @@ $gs-baseline: 12px;
                 }
 
                 @include mq(tablet){
-                
+
                     display: inline;
-                    
+
                 }
             }
 
             @include mq(tablet){
-             
-                
+
+
 
             }
         }
-        
+
     }
